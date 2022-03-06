@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>Dictionary</title>´
+    </head>
+    <body>
+    <h1>Search Words</h1>
+    <form action="" method="get">
+        <label for="word">Word:</label>
+        <input type="text" id="word" name="word" size="40" autofocus>
+        <input type="submit" value="Search">
+        <br>
+        <output>
+        {% if definitions %}
+        <ul>
+            {% for definition in definitions %}
+                <li>{{ definition }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p>no definitions found.</p>
+        {% endif %}
+        </output>
+    </form>
+    <p><a href="{% url 'dictionary:addview' %}">Add words to dictionary</a></p>
+    </body>
+</html>
