@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['52.169.126.155']
 # Application definition
 
 INSTALLED_APPS = [
+    'librarydb.apps.LibrarydbConfig',
     'dictionary.apps.DictionaryConfig',
     'django.contrib.admin',
     'django.contrib.auth',

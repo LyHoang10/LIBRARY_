@@ -1,0 +1,31 @@
+{% load i18n %}
+{% load static %}
+
+<p></p><a href="create/">{% trans "Add a new book" %}</a></p>
+
+<h1>Latest Books</h1>
+{% if latest_books %}
+    <ul>
+    {% for book in latest_books %}
+        <li><h2>{{ book.title }}</h2>
+        <p>Published: {{ book.pub_date }}</p>
+        <p>Written by:
+        <ul>
+            {% for author in book.authors.all %}
+            <li>{{ author.first_name }} {{ author.last_name }}</li>
+            {% endfor %}
+        </ul></p>
+        <p>Genres:
+            <ul>
+                {% for genre in book.genres.all %}
+                <li>{{ genre.name }}</li>
+                {% endfor %}
+            </ul></p>
+        <p><a href="{{ book.id }}/">Add book information</a></p>
+        <p><a href="{{ book.id }}/delete/">Delete book</a></p>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>{% trans "No new books were available." %}</p>
+{% endif %}
