@@ -1,5 +1,5 @@
 <h1>Add a New Book</h1>
-<form action="/librarydb/create/" method="post">
+<form action="{% url 'librarydb:create' %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Add">
