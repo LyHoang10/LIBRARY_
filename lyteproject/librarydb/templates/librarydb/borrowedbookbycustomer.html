@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+  
+<h3 class="p-3 mb-2 bg-danger text-white" style = 'font-size: 50px;text-align:center;'>Borrowed Books</h3>
+
+<div class="row">
+
+  <div class="col-lg-6" style="padding-right:0px;">
+    {% if li1%}
+    <table class="table table-hover table-condensed table-striped table-bordered">
+  <thead>
+  <tr>
+  <th>Title</th>
+  <th>Enrollment</th>
+  <th>Branch</th>
+    <th>Book Name</th>
+      <th>Author</th>
+  </tr>
+  </thead>
+  <tfoot>
+  <tr>
+  <td colspan="5">
+  <div class="links"></div>
+  </td>
+  </tr>
+  </tfoot>
+  <tbody>
+    {% for t in li1 %}
+<tr>
+  <td>  {{t.0}}</td>
+  <td>  {{t.1}}</td>
+  <td>  {{t.2}}</td>
+  <td>  {{t.3}}</td>
+  <td>  {{t.4}}</td>
+</tr>
+
+    {% endfor %}
+  </tbody>
+  </table>
+
+</div>
+
+<div class="col-lg-6" style="padding-left:0px;">
+
+      <table class="table table-hover table-condensed table-striped table-bordered">
+    <thead>
+    <tr>
+    <th>Issue Date</th>
+    <th>Expiry Date</th>
+    <th>Fine</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+    <td colspan="5">
+    <div class="links"></div>
+    </td>
+    </tr>
+    </tfoot>
+    <tbody>
+      {% for t in li2 %}
+<tr>
+  <td>  {{t.0}}</td>
+  <td>  {{t.1}}</td>
+  <td>  {{t.2}}</td>
+</tr>
+
+
+
+
+      {% endfor %}
+    </tbody>
+    </table>
+    {%else%}
+    <h1> No borrowed book</h1>
+    {%endif%}
+
+</div></div>
+
+
+
+
+
+
+<br><br><br><br><br><br>
+<br><br><br>
+
+<!--{% if borrowedbooks %}
+<ul>
+{% for book in borrowedbooks %}
+    <li><h2>{{ book.title }}</h2>
+    <p>Published: {{ book.pub_date }}</p>
+    <p>Written by:
+    <ul>
+        {% for author in book.authors.all %}
+        <li>{{ author.first_name }} {{ author.last_name }}</li>
+        {% endfor %}
+    </ul></p>
+    <p>Genres:
+        <ul>
+            {% for genre in book.genres.all %}
+            <li>{{ genre.name }}</li>
+            {% endfor %}
+        </ul></p>
+    <p><a href="{{ book.id }}/">Add book information</a></p>
+    <p><a href="{{ book.id }}/delete/">Delete book</a></p>
+    <p><a href="{{ book.id }}/borrowedbookbycustomer/">Borrow book</a></p>
+    </li>
+{% endfor %}
+</ul>
+{%else%}
+    <h1> No borrowed book</h1>
+{%endif%} -->
+
+
+  </body>
+</html>
